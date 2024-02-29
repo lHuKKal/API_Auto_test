@@ -32,9 +32,7 @@ class TestCreatePlace:
         result_get: Response = GoogleMapsApi.get_new_place(place_id)  # Проверка, что локация была создана методом POST
 
         Checking.check_status_code(result_get, 200)
-        Checking.check_existing_fields(result_get,
-                                       ['location', 'accuracy', 'name', 'phone_number', 'address', 'types', 'website',
-                                        'language'])
+        Checking.check_existing_fields(result_get,['location', 'accuracy', 'name', 'phone_number', 'address', 'types', 'website', 'language'])
         Checking.check_contains_field(result_get, 'address', '29, side layout, cohen 09')
 
         print("Метод PUT")
@@ -46,9 +44,7 @@ class TestCreatePlace:
         result_get: Response = GoogleMapsApi.get_new_place(place_id)  # Проверка, что данные обновились методом PUT
 
         Checking.check_status_code(result_put, 200)
-        Checking.check_existing_fields(result_get,
-                                       ['location', 'accuracy', 'name', 'phone_number', 'address', 'types', 'website',
-                                        'language'])
+        Checking.check_existing_fields(result_get,['location', 'accuracy', 'name', 'phone_number', 'address', 'types', 'website', 'language'])
         Checking.check_contains_field(result_get, 'address', '100 Lenina street, RU (Updated)')
 
         print("Метод DELETE")
