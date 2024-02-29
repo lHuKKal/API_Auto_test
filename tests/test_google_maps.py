@@ -1,4 +1,4 @@
-import json  #тест для гита
+import json
 import allure
 
 import response
