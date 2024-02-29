@@ -12,7 +12,7 @@ class http_methods():
 
     @staticmethod
     def get(url):
-        with allure.step("GET"):
+        with allure.step("GET"):  # к методу подключен Allure и можно добавить описание данного запроса
             Logger.add_request(url, method="GET")
             result = requests.get(url, headers=http_methods.headers, cookies=http_methods.cookie)
             Logger.add_response(result)

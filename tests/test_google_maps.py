@@ -9,10 +9,10 @@ from utils.Checking import Checking
 """Создание, изменение, удаление новой локации"""
 
 
-@allure.epic("Test Create New Location")
+@allure.epic("Test Create New Location")  # Глобальный Allure, его надо ставить перед КАЖДЫМ классом
 class TestCreatePlace:
 
-    @allure.description("CRUD New Location")
+    @allure.description("CRUD New Location")  # Test Suit Allure, его необходимо ставить перед функцией с описанием данного тест плана
     def test_create_new_place(self):
 
         print("Метод POST")
@@ -25,8 +25,8 @@ class TestCreatePlace:
         Checking.check_existing_fields(result_post, ['status', 'place_id', 'scope', 'reference', 'id'])
         Checking.check_contains_field(result_post, 'status', 'OK')
 
-        fields = json.loads(result_post.text)  # получить список полей ЛАЙФАК
-        print(list(fields))
+        # fields = json.loads(result_post.text)  # получить список полей ЛАЙФАК
+        # print(list(fields))
 
         print("Метод GET POST")
         result_get: Response = GoogleMapsApi.get_new_place(place_id)  # Проверка, что локация была создана методом POST
