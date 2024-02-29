@@ -7,7 +7,7 @@ from requests import Response
 class Checking:
     """"Проверка статус кода"""
 
-    @staticmethod
+    @staticmethod  # Обязательная проверка на статус !!
     def check_status_code(response: Response, status_code):
         assert status_code == response.status_code
         if response.status_code == status_code:
@@ -17,15 +17,15 @@ class Checking:
 
     """Метод для проверки наличе полей в ответе запроса"""
 
-    @staticmethod
+    @staticmethod  # ОЧЕНЬ редкая проверка списка полей в ответе
     def check_existing_fields(response: Response, expected_result):
         fields = json.loads(response.text)
         assert list(fields) == expected_result
         print("Все поля присутствуют (Checking class)")
 
-    """Метод содержание целых слов в полях"""  #
+    """Метод содержание целых слов в полях"""
 
-    @staticmethod  # Не часто будет использоваться
+    @staticmethod  # Не часто будет использоваться !!!!
     def check_contains_field(response: Response, field_name, expected_result):
         check = response.json()
         check_info = check.get(field_name)
