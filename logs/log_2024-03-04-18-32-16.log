@@ -1,0 +1,19 @@
+
+-------------------------------------------------------------------------------------------
+Test:  tests/test_google_maps.py::TestCreatePlace::test_create_new_place (call)
+Time:  2024-03-04 18:32:16.390175
+Request method:  POST
+Request URL:  https://rahulshettyacademy.com/maps/api/place/add/json?key=qaclick123
+
+Response code:  200
+Response text:  {
+    "status": "OK",
+    "place_id": "440050e53603ce08bd266747ffebde41",
+    "scope": "APP",
+    "reference": "2f952e7e80c484ee14f4679c3c2788682f952e7e80c484ee14f4679c3c278868",
+    "id": "2f952e7e80c484ee14f4679c3c278868"
+}
+Response headers:  {'Date': 'Mon, 04 Mar 2024 13:32:12 GMT', 'Server': 'Apache/2.4.52 (Ubuntu)', 'Access-Control-Allow-Origin': '*', 'Access-Control-Allow-Methods': 'POST', 'Access-Control-Max-Age': '3600', 'Access-Control-Allow-Headers': 'Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With', 'Content-Length': '194', 'Keep-Alive': 'timeout=5, max=100', 'Connection': 'Keep-Alive', 'Content-Type': 'application/json;charset=UTF-8'}
+Response cookies:  {}
+------------------------------------------------------------------------------------------
+

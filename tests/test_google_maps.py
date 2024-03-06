@@ -5,6 +5,7 @@ import response
 from requests import Response
 from utils.api import GoogleMapsApi
 from utils.Checking import Checking
+from utils.Checking import ExtractingValue
 
 """Создание, изменение, удаление новой локации"""
 
@@ -19,7 +20,9 @@ class TestCreatePlace:
         result_post: Response = GoogleMapsApi.create_new_place()
 
         check_post = result_post.json()
-        place_id = check_post.get("place_id")
+        place_id = ExtractingValue.Extracting_Value_from_field(result_post, 'place_id')
+        print('переменная - ' + str(place_id))
+        # place_id = check_post.get("place_id")
 
         Checking.check_status_code(result_post, 200)
         Checking.check_existing_fields(result_post, ['status', 'place_id', 'scope', 'reference', 'id'])
@@ -50,7 +53,7 @@ class TestCreatePlace:
         print("Метод DELETE")
         result_delete: Response = GoogleMapsApi.delete_place(place_id)  # Удаление созданной локации
 
-        Checking.check_status_code(result_delete, 300)
+        Checking.check_status_code(result_delete, 200)
         Checking.check_existing_fields(result_delete, ['status'])
 
         print("Метод GET DELETE")
