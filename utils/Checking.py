@@ -44,16 +44,20 @@ class Checking:
             print('Слово ' + expected_word + ' не присутствует в поле!!!')
 
 
-class GetValue:
+"""Методы взятие значений из ответа запроса"""
 
-    """"Берем значение из указанного поля"""
+
+class GetValue:
+    """Берем значение из указанного поля"""
+
     @staticmethod
     def get_value_from_field(response: Response, get_field_name):
         check = response.json()
         check_info = check.get(get_field_name)
         return check_info
 
-    """"Берем значение указанного поля из указанного индекса объекта полученного списка"""
+    """Берем значение указанного поля из указанного индекса объекта полученного списка"""
+
     @staticmethod
     def get_value_from_item_of_list(response: Response, field_of_list, index, get_value_from_field):
         response_check = response.json()
