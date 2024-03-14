@@ -6,7 +6,7 @@ from utils.logger import Logger
 """Список HTTP методов"""
 
 
-class http_methods():
+class HttpMethods():
     headers = {'content-type': 'application/json'}
     cookie = ''
 
@@ -14,7 +14,7 @@ class http_methods():
     def get(url):
         with allure.step("GET"):  # к методу подключен Allure и можно добавить описание данного запроса
             Logger.add_request(url, method="GET")
-            result = requests.get(url, headers=http_methods.headers, cookies=http_methods.cookie)
+            result = requests.get(url, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
             return result
 
@@ -22,7 +22,7 @@ class http_methods():
     def post(url, body):
         with allure.step("POST"):
             Logger.add_request(url, method="POST")
-            result = requests.post(url, json=body, headers=http_methods.headers, cookies=http_methods.cookie)
+            result = requests.post(url, json=body, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
             return result
 
@@ -30,7 +30,7 @@ class http_methods():
     def put(url, body):
         with allure.step("PUT"):
             Logger.add_request(url, method="PUT")
-            result = requests.put(url, json=body, headers=http_methods.headers, cookies=http_methods.cookie)
+            result = requests.put(url, json=body, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
             return result
 
@@ -38,7 +38,7 @@ class http_methods():
     def delete(url, body):
         with allure.step("DELETE"):
             Logger.add_request(url, method="DELETE")
-            result = requests.delete(url, json=body, headers=http_methods.headers, cookies=http_methods.cookie)
+            result = requests.delete(url, json=body, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
             return result
 
@@ -46,6 +46,6 @@ class http_methods():
     def patch(url, body):
         with allure.step("PATCH"):
             Logger.add_request(url, method="PATCH")
-            result = requests.patch(url, json=body, headers=http_methods.headers, cookies=http_methods.cookie)
+            result = requests.patch(url, json=body, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
             return result

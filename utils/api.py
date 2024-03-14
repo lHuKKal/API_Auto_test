@@ -1,4 +1,4 @@
-from utils.http_methods_file import http_methods
+from utils.http_methods_file import HttpMethods
 import json
 
 """"Методы для тестирования Google Maps API"""
@@ -31,7 +31,7 @@ class GoogleMapsApi:
             "language": "French-IN"
         }
 
-        post_result = http_methods.post(post_url, json_for_create_new_place)
+        post_result = HttpMethods.post(post_url, json_for_create_new_place)
         print(json.dumps(post_result.json(), indent=4))
         return post_result
 
@@ -43,7 +43,7 @@ class GoogleMapsApi:
         get_url = base_url + get_path + parameters + '&place_id=' + place_id
         print(get_url)
 
-        get_result = http_methods.get(get_url)
+        get_result = HttpMethods.get(get_url)
         print(json.dumps(get_result.json(), indent=4))
         return get_result
 
@@ -61,7 +61,7 @@ class GoogleMapsApi:
             "key": "qaclick123"
         }
 
-        put_result = http_methods.put(put_url, put_body)
+        put_result = HttpMethods.put(put_url, put_body)
         print(json.dumps(put_result.json(), indent=4))
         return put_result
 
@@ -77,6 +77,6 @@ class GoogleMapsApi:
             "place_id": place_id
         }
 
-        delete_result = http_methods.delete(delete_url, delete_body)
+        delete_result = HttpMethods.delete(delete_url, delete_body)
         print(json.dumps(delete_result.json(), indent=4))
         return delete_result
