@@ -6,13 +6,13 @@ from utils.logger import Logger
 """Список HTTP методов"""
 
 
-class HttpMethods():
+class HttpMethods:
     headers = {'content-type': 'application/json'}
     cookie = ''
 
     @staticmethod
     def get(url):
-        with allure.step("GET"):  # к методу подключен Allure и можно добавить описание данного запроса
+        with allure.step("'Making GET request to " + url):  # к методу подключен Allure и можно добавить описание данного запроса
             Logger.add_request(url, method="GET")
             result = requests.get(url, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
